@@ -11,5 +11,9 @@ data = {
 
 response = requests.put(url, json= data)
 
-print(response.status_code)
-print(response.text)
+if response.status_code ==200:
+    atualizado  = response.json()
+    print(f"Usuário com ID {id} foi atualizado com sucesso😊")
+    print (atualizado)
+else:
+ print (f"Falha na requisição😒: {response.status_code}{response.text}")      
